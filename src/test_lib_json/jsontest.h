@@ -229,8 +229,7 @@ namespace JsonTest {
       result_->predicateStackTail_ = &_minitest_Context;                \
       (expr);                                                           \
       result_->popPredicateContext();                                   \
-   }                                                                    \
-   *result_
+   }
 
 /// \brief Asserts that two values are equals.
 #define JSONTEST_ASSERT_EQUAL( expected, actual )          \
