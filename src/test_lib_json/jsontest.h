@@ -190,7 +190,7 @@ namespace JsonTest {
    checkEqual( TestResult &result, const T &expected, const U &actual, 
                const char *file, unsigned int line, const char *expr )
    {
-      if ( expected != actual )
+      if ( static_cast< U >( expected ) != actual )
       {
          result.addFailure( file, line, expr );
          result << "Expected: " << expected << "\n";
