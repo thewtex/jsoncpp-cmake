@@ -13,6 +13,7 @@ if( NOT CMAKE_ARCHIVE_OUTPUT_DIRECTORY )
 endif()
 
 include_directories( include )
+set( JsonCpp_LIBRARY json )
 
 add_subdirectory( include )
 add_subdirectory( src )

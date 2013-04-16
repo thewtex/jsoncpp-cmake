@@ -1,21 +1,24 @@
 # For build tree configuration.
-get_target_property( JsonCpp_LIBRARY json LOCATION )
+export( TARGETS ${JsonCpp_LIBRARY}
+  FILE ${JsonCpp_BINARY_DIR}/JsonCppTargets.cmake )
 set( JsonCpp_INCLUDE ${JsonCpp_SOURCE_DIR}/include )
 configure_file( "${JsonCpp_SOURCE_DIR}/cmake/JsonCppConfig.cmake.in"
   "${JsonCpp_BINARY_DIR}/JsonCppConfig.cmake"
+  @ONLY
   )
 
 # For install configuration.
-get_filename_component( JsonCpp_INSTALL_LIBRARY
-  ${JsonCpp_LIBRARY} NAME
-  )
-set( JsonCpp_LIBRARY ${CMAKE_INSTALL_PREFIX}/lib/${JsonCpp_INSTALL_LIBRARY} )
-set( JsonCpp_INCLUDE ${CMAKE_INSTALL_PREFIX}/include )
+set( JsonCpp_INCLUDE "\${config_dir}/../../../include" )
 configure_file( "${JsonCpp_SOURCE_DIR}/cmake/JsonCppConfig.cmake.in"
-  "${JsonCpp_BINARY_DIR}/InstallFiles/JsonCppConfig.cmake"
+  "${JsonCpp_BINARY_DIR}/${CMAKE_FILES_DIRECTORY}/JsonCppConfig.cmake"
+  @ONLY
   )
 install(FILES
-  "${JsonCpp_BINARY_DIR}/InstallFiles/JsonCppConfig.cmake"
-  DESTINATION lib
+  "${JsonCpp_BINARY_DIR}/${CMAKE_FILES_DIRECTORY}/JsonCppConfig.cmake"
+  DESTINATION lib/CMake/JsonCpp
+  COMPONENT Development
+  )
+install(EXPORT JsonCppTargets
+  DESTINATION lib/CMake/JsonCpp
   COMPONENT Development
   )

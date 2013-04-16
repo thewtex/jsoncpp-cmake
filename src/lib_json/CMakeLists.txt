@@ -5,11 +5,12 @@ set( json_SRCS
   )
 # Shared libraries on Windows are currently broken.
 if( WIN32 )
-  add_library( json STATIC ${json_SRCS} )
+  add_library( ${JsonCpp_LIBRARY} STATIC ${json_SRCS} )
 else()
-  add_library( json ${json_SRCS} )
+  add_library( ${JsonCpp_LIBRARY} ${json_SRCS} )
 endif()
 install( TARGETS json
+  EXPORT JsonCppTargets
   ARCHIVE DESTINATION lib COMPONENT Development
   LIBRARY DESTINATION lib COMPONENT RuntimeLibraries
   )
