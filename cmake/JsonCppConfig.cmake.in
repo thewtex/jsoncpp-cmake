@@ -6,9 +6,9 @@
 
 set( JsonCpp_FOUND 1 )
 
-get_filename_component( config_dir "${CMAKE_CURRENT_LIST_FILE}" PATH )
+get_filename_component( JsonCpp_CMAKE_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH )
 
 set( JsonCpp_INCLUDE_DIRS "@JsonCpp_INCLUDE@" )
 
-include( "${config_dir}/JsonCppTargets.cmake" )
+include( "${JsonCpp_CMAKE_DIR}/JsonCppTargets.cmake" )
 set( JsonCpp_LIBRARIES "@JsonCpp_LIBRARY@" )

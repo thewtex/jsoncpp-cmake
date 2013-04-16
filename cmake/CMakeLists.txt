@@ -8,7 +8,7 @@ configure_file( "${JsonCpp_SOURCE_DIR}/cmake/JsonCppConfig.cmake.in"
   )
 
 # For install configuration.
-set( JsonCpp_INCLUDE "\${config_dir}/../../../include" )
+set( JsonCpp_INCLUDE "\${JsonCpp_CMAKE_DIR}/../../../include" )
 configure_file( "${JsonCpp_SOURCE_DIR}/cmake/JsonCppConfig.cmake.in"
   "${JsonCpp_BINARY_DIR}/${CMAKE_FILES_DIRECTORY}/JsonCppConfig.cmake"
   @ONLY
