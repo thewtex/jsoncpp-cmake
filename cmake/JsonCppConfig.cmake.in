@@ -10,5 +10,8 @@ get_filename_component( JsonCpp_CMAKE_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH )
 
 set( JsonCpp_INCLUDE_DIRS "@JsonCpp_INCLUDE@" )
 
-include( "${JsonCpp_CMAKE_DIR}/JsonCppTargets.cmake" )
+if( NOT JsonCpp_TARGETS_IMPORTED AND NOT JsonCpp_BINARY_DIR )
+  set( JsonCpp_TARGETS_IMPORTED 1 )
+  include( "${JsonCpp_CMAKE_DIR}/JsonCppTargets.cmake" )
+endif()
 set( JsonCpp_LIBRARIES "@JsonCpp_LIBRARY@" )
