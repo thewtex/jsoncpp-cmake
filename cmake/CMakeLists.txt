@@ -1,5 +1,5 @@
 # For build tree configuration.
-get_target_property( JsonCpp_LIBRARY json LOCATION )
+get_target_property( JsonCpp_LIBRARY jsoncpp LOCATION )
 set( JsonCpp_INCLUDE ${JsonCpp_SOURCE_DIR}/include )
 configure_file( "${JsonCpp_SOURCE_DIR}/cmake/JsonCppConfig.cmake.in"
   "${JsonCpp_BINARY_DIR}/JsonCppConfig.cmake"
